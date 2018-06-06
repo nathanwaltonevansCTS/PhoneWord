@@ -11,8 +11,11 @@ namespace Phoneword
 
         public App()
         {
+            //initialises app
             InitializeComponent();
+            //creates a list of numbers
             PhoneNumbers = new List<string>();
+            //creates a mainpage
             MainPage = new NavigationPage(new MainPage());
         }
 

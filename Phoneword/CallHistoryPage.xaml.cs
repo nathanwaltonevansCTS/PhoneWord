@@ -5,10 +5,13 @@ using Xamarin.Forms;
 
 namespace Phoneword
 {
+    //inheriting the content page behaviours and variables
     public partial class CallHistoryPage : ContentPage
     {
+        
         public CallHistoryPage()
         {
+            
             InitializeComponent();
         }
     }
