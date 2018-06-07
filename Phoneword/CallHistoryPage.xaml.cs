@@ -11,7 +11,7 @@ namespace Phoneword
         
         public CallHistoryPage()
         {
-            
+            //initialises the call history page 
             InitializeComponent();
         }
     }

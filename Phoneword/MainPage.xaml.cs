@@ -5,8 +5,9 @@ namespace Phoneword
 {
     public partial class MainPage : ContentPage
     {
+        //creates the translated number string
         string translatedNumber;
-
+        //initialises the mainpage
         public MainPage()
         {
             InitializeComponent();
@@ -15,7 +16,9 @@ namespace Phoneword
         void OnTranslate(object sender, EventArgs e)
         {
             //translates the word
-            //then it changes the 'call' button from MainPage.xaml to the translated number 
+            //then it changes the 'call' button from MainPage.xaml
+            //to the translated number from the previous number 
+            //to be called
             translatedNumber = Core.PhonewordTranslator.ToNumber(phoneNumberText.Text);
             if (!string.IsNullOrWhiteSpace(translatedNumber))
             {
@@ -38,11 +41,13 @@ namespace Phoneword
                     "Yes",
                     "No"))
             {
-                //it finds the corrct platform to load it up on, ios or android
+                //it finds the corrct platform to load it up on
+                //ios or android
                 var dialer = DependencyService.Get<IDialer>();
                 if (dialer != null)
                 {
-                    //
+                    //adds the translated number to the list
+                    //of phone numbers which have been called
                     App.PhoneNumbers.Add(translatedNumber);
                     callHistoryButton.IsEnabled = true;
                     dialer.Dial(translatedNumber);
